@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Media;
 
 namespace chatBotPrj
 {
@@ -13,24 +14,39 @@ namespace chatBotPrj
         static void Main(string[] args)
         {
 
+            
+            
+
+            
+                string logo = File.ReadAllText("logo.txt");
+                Console.WriteLine(logo);
+            //hgfhgfhgfhgfhgf
+
+            SoundPlayer player = new SoundPlayer("greet.wav"); 
+            player.Play();
+
+
 
             string botName = "ChatBot";
-            string userName ;
+            string userName = "You";
 
             // Welcome message
             Console.WriteLine(botName + ": Hello, welcome to cyber security.");
 
             // Ask for user's name
-            Console.Write(botName + ": What is your name? ");
+            Console.WriteLine(botName + ": What is your name? ");
+            Console.Write(userName + ": ");
             userName = Console.ReadLine();
 
             // Asking the user if they want to change the bot's name
-            Console.Write(botName + ": Would you like to give me a name? (yes/no) ");
+            Console.WriteLine(botName + $": Would you like to give me a name {userName}? (yes/no) " );
+            Console.Write(userName + ": ");
             string changeName = Console.ReadLine().ToLower();
 
             if (changeName == "yes")
             {
-                Console.Write(botName + ": What would you like to call me? ");
+                Console.WriteLine(botName + $": What would you like to call me {userName}? ");
+                Console.Write(userName + ": ");
                 botName = Console.ReadLine();
             }
 
